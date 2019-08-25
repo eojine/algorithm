@@ -1,7 +1,6 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 
 using namespace std;
 
@@ -29,22 +28,23 @@ vector<int> solution(int N, vector<int> stages) {
         int oneStop = 0;
         int allStop = 0;
         for (int j = 0; j < playerNum; ++j) {
-            if (stages[j] >= i) {
+            if (stages[j] >= i)
                 allStop++;
-            }
-            if (stages[j] == i) {
+            if (stages[j] == i)
                 oneStop++;
-            }
         }
-        st[i] = {i, (double) oneStop / (double) allStop};
+
+        if (oneStop == 0) {
+            st[i] = {i, 0};
+        } else {
+            st[i] = {i, (double) oneStop / (double) allStop};
+        }
     }
 
-    cout << endl;
     sort(st.begin() + 1, st.end(), cmp);
 
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < N; ++i)
         answer[i] = st[i + 1].stage;
-        cout << st[i + 1].stage << " ";
-    }
+
     return answer;
 }
