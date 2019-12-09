@@ -28,20 +28,24 @@ visit[0][0] = true
 queue.append((0, 0))
 
 while !queue.isEmpty {
+    // 맨 앞에있는 위치 저장
     let x = queue.first?.0
     let y = queue.first?.1
     
     queue.removeFirst()
     
     for i in 0..<4 {
-        let nextX = x! + dx[i]
-        let nextY = y! + dy[i]
+        // 다음 위치 저장
+        guard let x = queue.first?.0 else { break }
+        guard let y = queue.first?.1 else { break }
         
         if !inRange(nextX, nextY) { continue }
         
+        // 다음 위치가 1이고, 방문하지 않았을 때
         if !visit[nextX][nextY] && map[nextX][nextY] == 1 {
             visit[nextX][nextY] = true
-            map[nextX][nextY] = map[x!][y!] + 1
+            // 다음 위치에 있는 곳에 현재 위치까지 더해진 수 저장
+            map[nextX][nextY] = map[x][y] + 1
             queue.append((nextX, nextY))
         }
     }
