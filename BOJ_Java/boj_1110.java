@@ -11,15 +11,12 @@ public class Main {
         while (true) {
             int first = num / 10;
             int second = num % 10;
-
             int tmp = first + second;
 
             num = ((num % 10) * 10) + tmp % 10;
             res++;
-
-            System.out.println(num + " " + tmp);
-            if (num == NUM)
-                break;
+            
+            if (num == NUM) break;
         }
 
         System.out.println(res);
