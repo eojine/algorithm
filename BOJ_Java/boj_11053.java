@@ -15,7 +15,7 @@ public class Main {
 		
 		int max = 0;
 		for (int i = 0; i < num; i++) {
-            d[i] = 1;
+           		d[i] = 1;
 			for (int j = 0; j < i; j++) {
 				if (a[i] > a[j] && d[i] <= d[j]) {
 					d[i] = d[j] + 1;
