@@ -35,7 +35,7 @@ public class BOJ_13335_트럭 {
             bridge.add(0);
         }
 
-        // 다리를 q로 놓고, 마지막은 -1로 만듦.
+        // 다리가 -1이 되었을 때 종료함.
         while(bridge.peek() != -1) {
             int truckFront = 0;
             int bridgeFront = 0;
